@@ -16,4 +16,9 @@ export class CarService {
     let url = this.apiUrl + "getcardetails";
     return this.httpClient.get<ListResponseModel<Car>>(url);
   }
+
+  getCarsByBrandId(brandId:number) : Observable<ListResponseModel<Car>> {
+    let url = this.apiUrl + "getallbybrandid/" + brandId;
+    return this.httpClient.get<ListResponseModel<Car>>(url);
+  }
 }

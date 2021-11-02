@@ -1,6 +1,11 @@
 <div *ngIf="dataLoaded==false" class="spinner-border text-warning" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
+
+<div *ngIf="cars.length == 0" class="alert alert-warning" role="alert">
+    Sistem de araba kaydı bulunamadı.
+</div>
+  
 <table *ngIf="dataLoaded==true" class="table">
     <thead>
         <th>Id</th>
