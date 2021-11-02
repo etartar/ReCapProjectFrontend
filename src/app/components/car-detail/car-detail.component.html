@@ -1,0 +1,14 @@
+<div class="pt-3 pb-3">
+    <div *ngIf="dataLoaded==false" class="spinner-border text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <div *ngIf="dataLoaded==true">
+        <p>Marka : {{ carDetail.brandName }}</p>
+        <p>Renk : {{ carDetail.colorName }}</p>
+        <p>Fiyat : {{ carDetail.dailyPrice }}</p>
+        <p>Açıklama : {{ carDetail.description }}</p>
+    </div>
+
+    <app-car-images></app-car-images>
+</div>

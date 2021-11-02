@@ -1,0 +1,9 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-warning" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="row" *ngIf="dataLoaded==true">
+    <div class="col-md-3" *ngFor="let carImage of carImages">
+        <img src="https://localhost:5001{{ carImage.imagePath }}" />
+    </div>
+</div>
