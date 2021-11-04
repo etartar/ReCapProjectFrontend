@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="pt-3 pb-3">
+        <div *ngIf="dataLoaded==false" class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        
+        <div *ngIf="dataLoaded==true && cars.length == 0" class="alert alert-warning" role="alert">
+            Sistem de araba kaydı bulunamadı.
+        </div>
+    
+        <div *ngIf="dataLoaded==true && cars.length > 0" class="album">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col" *ngFor="let car of cars">
+                  <div class="card shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+        
+                    <div class="card-body">
+                      <p class="card-text">{{ car.brandName }} - {{ car.colorName }}</p>
+                      <p class="card-text mt-0">{{ car.description }}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <a routerLink="/cars/detail/{{ car.id }}" class="btn btn-sm btn-outline-secondary">Detay</a>
+                        </div>
+                        <small class="text-muted">{{ car.dailyPrice }} TL</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
