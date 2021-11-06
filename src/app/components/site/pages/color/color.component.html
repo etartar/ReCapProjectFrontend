@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                (click)="clearCurrentColor()"
+                routerLink="/colors" 
+                [class]="getAllColorClass()" 
+                aria-current="true">
+                  <div class="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                      <h6 class="mb-0">Tüm Renkler</h6>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                (click)="setCurrentColor(color)"
+                routerLink="/colors/{{ color.id }}"
+                *ngFor="let color of colors"
+                [class]="getCurrentColor(color)" 
+                aria-current="true">
+                    <div class="d-flex gap-2 w-100 justify-content-between">
+                      <div>
+                        <h6 class="mb-0">{{ color.name }}</h6>
+                      </div>
+                    </div>
+                </a>
+            </div>
+            <h5 *ngIf="currentColor">{{ currentColor.name }} seçtiniz</h5>
+        </div>
+        <div class="col-md-9">
+            <app-car></app-car>
+        </div>
+    </div>
+</div>

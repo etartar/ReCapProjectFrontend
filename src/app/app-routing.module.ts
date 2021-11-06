@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BrandComponent } from './components/brand/brand.component';
-import { CarDetailComponent } from './components/car-detail/car-detail.component';
-import { CarComponent } from './components/car/car.component';
-import { ColorComponent } from './components/color/color.component';
-import { CustomerComponent } from './components/customer/customer.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { RentalComponent } from './components/rental/rental.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { SiteLayoutComponent } from './layouts/site-layout/site-layout.component';
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", component: HomePageComponent },
-  { path: "brands", component: BrandComponent },
-  { path: "brands/:brandId", component: BrandComponent },
-  { path: "colors", component: ColorComponent },
-  { path: "colors/:colorId", component: ColorComponent },
-  { path: "cars", component: CarComponent },
-  { path: "cars/detail/:id", component: CarDetailComponent },
-  { path: "customers", component: CustomerComponent },
-  { path: "rentals", component: RentalComponent },
+  {
+    path: "",
+    component: SiteLayoutComponent,
+    children: [{
+      path: "",
+      loadChildren: () => import('./layouts/site-layout/site-layout.module').then(m => m.SiteLayoutModule)
+    }]
+  },
+  {
+    path: "admin",
+    component: AdminLayoutComponent,
+    children: [{
+      path: "",
+      loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
+    }]
+  }
 ];
 
 @NgModule({
