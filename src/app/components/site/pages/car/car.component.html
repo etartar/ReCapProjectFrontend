@@ -10,12 +10,12 @@
     
         <div *ngIf="dataLoaded==true && cars.length > 0" class="album">
             <div class="mb-3">
-              <label for="filterText" class="form-label">Araba ara</label>
+              <label for="filterText" class="form-label">Ara : </label>
               <input type="text" 
                     [(ngModel)]="filterText" 
                     class="form-control" 
                     id="filterText" 
-                    placeholder="Markaya göre ara" />
+                    placeholder="Markaya, Renge ve Araba adına göre ara..." />
             </div>
             <div *ngIf="filterText != ''" class="alert alert-primary">
               <strong>{{ filterText }}</strong> aradınız.
