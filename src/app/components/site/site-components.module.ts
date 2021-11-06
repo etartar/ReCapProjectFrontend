@@ -12,7 +12,8 @@ import { RentalComponent } from './pages/rental/rental.component';
 import { VatAddedPipe } from 'src/app/pipes/vat-added.pipe';
 import { FormsModule } from '@angular/forms';
 import { FilterPipePipe } from 'src/app/pipes/filter-pipe.pipe';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -35,7 +36,11 @@ import { FilterPipePipe } from 'src/app/pipes/filter-pipe.pipe';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: "toast-bottom-right"
+    })
   ]
 })
 export class SiteComponentsModule { }
