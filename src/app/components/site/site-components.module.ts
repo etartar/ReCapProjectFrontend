@@ -9,6 +9,9 @@ import { CarDetailComponent } from './pages/car-detail/car-detail.component';
 import { CarImagesComponent } from './pages/car-images/car-images.component';
 import { ColorComponent } from './pages/color/color.component';
 import { RentalComponent } from './pages/rental/rental.component';
+import { VatAddedPipe } from 'src/app/pipes/vat-added.pipe';
+import { FormsModule } from '@angular/forms';
+import { FilterPipePipe } from 'src/app/pipes/filter-pipe.pipe';
 
 
 
@@ -21,7 +24,9 @@ import { RentalComponent } from './pages/rental/rental.component';
     CarDetailComponent,
     CarImagesComponent,
     ColorComponent,
-    RentalComponent
+    RentalComponent,
+    VatAddedPipe,
+    FilterPipePipe
   ],
   exports: [
     SiteNavbarComponent,
@@ -29,7 +34,8 @@ import { RentalComponent } from './pages/rental/rental.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class SiteComponentsModule { }
