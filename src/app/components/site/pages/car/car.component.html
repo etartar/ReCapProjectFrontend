@@ -1,44 +1,60 @@
-<div class="container">
-    <div class="pt-3 pb-3">
-        <div *ngIf="dataLoaded==false" class="spinner-border text-warning" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        
-        <div *ngIf="dataLoaded==true && cars.length == 0" class="alert alert-warning" role="alert">
-            Sistem de araba kaydı bulunamadı.
-        </div>
-    
-        <div *ngIf="dataLoaded==true && cars.length > 0" class="album">
-            <div class="mb-3">
-              <label for="filterText" class="form-label">Ara : </label>
-              <input type="text" 
-                    [(ngModel)]="filterText" 
-                    class="form-control" 
-                    id="filterText" 
-                    placeholder="Markaya, Renge ve Araba adına göre ara..." />
-            </div>
-            <div *ngIf="filterText != ''" class="alert alert-primary">
-              <strong>{{ filterText }}</strong> aradınız.
-            </div>
+<div class="container py-3">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="p-3 border rounded-3 bg-light">
+          <h3 class="mb-3">Filtrele</h3>
+          
+          <div class="form-group">
+            <select class="form-select" id="brandId" [(ngModel)]="brandId" aria-label="Marka Seçiniz">
+              <option value="" selected>Marka Seçiniz</option>
+              <option value="{{ brand.id }}" *ngFor="let brand of brands">{{ brand.name }}</option>
+            </select>
+            <button type="button" class="btn btn-primary mb-3" (click)="filterBrands()">Filtrele</button>
+          </div>
+          
+          <hr/>
 
+          <div class="form-group">
+            <select class="form-select" id="colorId" [(ngModel)]="colorId" aria-label="Renk Seçiniz">
+              <option value="" selected>Renk Seçiniz</option>
+              <option value="{{ color.id }}" *ngFor="let color of colors">{{ color.name }}</option>
+            </select>
+            <button type="button" class="btn btn-primary mb-3" (click)="filterColors()">Filtrele</button>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="container">
+          <div *ngIf="carDataLoaded==false" class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+
+          <div *ngIf="carDataLoaded==true && cars.length == 0" class="alert alert-warning" role="alert">
+            Sistem de araba kaydı bulunamadı.
+          </div>
+
+          <div *ngIf="carDataLoaded==true && cars.length > 0" class="album">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col" *ngFor="let car of cars | filterPipe:filterText">
-                  <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <div class="col" *ngFor="let car of cars">
+                <div class="card shadow-sm">
+                  <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
         
-                    <div class="card-body">
-                      <p class="card-text">{{ car.brandName | uppercase }} - {{ car.colorName | uppercase }}</p>
-                      <p class="card-text mt-0">{{ car.description }}</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <a routerLink="/cars/detail/{{ car.id }}" class="btn btn-sm btn-outline-secondary">Detay</a>
-                        </div>
-                        <small class="text-muted">{{ car.dailyPrice | vatAdded:0 | currency:"TRY":"TL ":"" }}</small>
+                  <div class="card-body">
+                    <p class="card-text">{{ car.brandName | uppercase }} - {{ car.colorName | uppercase }}</p>
+                    <p class="card-text mt-0">{{ car.description }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a routerLink="/cars/detail/{{ car.id }}" class="btn btn-sm btn-outline-secondary">Detay</a>
                       </div>
+                      <small class="text-muted">{{ car.dailyPrice | vatAdded:0 | currency:"TRY":"TL ":"" }}</small>
                     </div>
                   </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 </div>
