@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
+        <div class="col" *ngFor="let cartItem of cartItems">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">{{ cartItem.car.brandName | uppercase }} - {{ cartItem.car.colorName | uppercase }}</p>
+              <p class="card-text mt-0">{{ cartItem.car.description }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">{{ cartItem.car.dailyPrice | vatAdded:0 | currency:"TRY":"TL ":"" }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="row">
+                <h1>Kredi Kartı İle Ödeme Yap</h1>
+                <div class="col-12">
+                    <div class="form-group mb-1">
+                        <label for="" class="form-label text-black">Kart Numarası</label>
+                        <input type="text" class="form-control form-control-lg rounded-0" [(ngModel)]="cardNumber" placeholder=" ">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group mb-1">
+                        <label for="" class="form-label text-black">MM / YYYY</label>
+                        <input type="text" class="form-control form-control-lg rounded-0" [(ngModel)]="expirationDate" placeholder=" ">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group mb-1">
+                        <label for="" class="form-label text-black">CVV</label>
+                        <input type="password" class="form-control form-control-lg rounded-0" [(ngModel)]="cvv" placeholder=" ">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group mb-1">
+                        <label for="" class="form-label text-black">Kart Üzerindeki İsim</label>
+                        <input type="text" class="form-control form-control-lg rounded-0" [(ngModel)]="nameOnTheCard" placeholder=" ">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group text-end">
+                        <button type="button" class="btn btn-primary rounded-0" (click)="makePayment()">Ödeme Yap</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
