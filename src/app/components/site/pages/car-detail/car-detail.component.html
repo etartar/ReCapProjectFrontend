@@ -12,5 +12,21 @@
         </div>
     
         <app-car-images></app-car-images>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Teslim Tarihi : </label>
+                    <input class="form-control" type="date" name="rentDate" [(ngModel)]="rentDate" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>İade Tarihi : </label>
+                    <input class="form-control" type="date" name="returnDate" [(ngModel)]="returnDate" />
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-success" (click)="addToCart(carDetail)">KİRALA</button>
     </div>
 </div>
