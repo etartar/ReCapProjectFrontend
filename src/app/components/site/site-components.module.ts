@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipePipe } from 'src/app/pipes/filter-pipe.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarListComponent } from './pages/car-list/car-list.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SiteFooterComponent,
     BrandComponent,
     CarComponent,
+    CarListComponent,
     CarDetailComponent,
     CarImagesComponent,
     ColorComponent,
