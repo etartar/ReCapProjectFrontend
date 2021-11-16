@@ -15,6 +15,10 @@ import { ColorCreateComponent } from './pages/color/color-create/color-create.co
 import { ColorDeleteComponent } from './pages/color/color-delete/color-delete.component';
 import { ColorUpdateComponent } from './pages/color/color-update/color-update.component';
 import { ColorListComponent } from './pages/color/color-list/color-list.component';
+import { CarCreateComponent } from './pages/car/car-create/car-create.component';
+import { CarListComponent } from './pages/car/car-list/car-list.component';
+import { CarUpdateComponent } from './pages/car/car-update/car-update.component';
+import { CarDeleteComponent } from './pages/car/car-delete/car-delete.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { ColorListComponent } from './pages/color/color-list/color-list.componen
     ColorCreateComponent,
     ColorDeleteComponent,
     ColorUpdateComponent,
-    ColorListComponent
+    ColorListComponent,
+    CarCreateComponent,
+    CarListComponent,
+    CarUpdateComponent,
+    CarDeleteComponent
   ],
   exports: [
     AdminNavbarComponent,

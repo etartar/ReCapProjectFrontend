@@ -1,0 +1,89 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Araba Düzenle</h1>
+</div>
+
+<div *ngIf="dataLoaded==false" class="p-3 mb-3 bg-light rounded shadow-sm">
+    <div class="d-flex align-items-center">
+        <strong>Loading...</strong>
+        <div class="ms-auto">
+            <div class="spinner-border spinner-border-md text-dark" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow spinner-grow-md text-warning" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="dataLoaded==true" class="bg-body rounded shadow-sm">
+    <form [formGroup]="carUpdateForm" (submit)="update()">
+        <div class="p-3 bg-light">
+            <div class="row">
+                <label for="brandId" class="col-sm-2 col-form-label">
+                    <strong class="align-middle">Marka</strong>
+                </label>
+                <div class="col-sm-10">
+                    <select class="form-select" id="brandId" formControlName="brandId" aria-label="Marka Seçiniz">
+                        <option value="" selected>Marka Seçiniz</option>
+                        <option value="{{ brand.id }}" *ngFor="let brand of brands">{{ brand.name }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 bg-white">
+            <div class="row">
+                <label for="colorId" class="col-sm-2 col-form-label">
+                    <strong class="align-middle">Renk</strong>
+                </label>
+                <div class="col-sm-10">
+                    <select class="form-select" id="colorId" formControlName="colorId" aria-label="Renk Seçiniz">
+                        <option value="" selected>Renk Seçiniz</option>
+                        <option value="{{ color.id }}" *ngFor="let color of colors">{{ color.name }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 bg-light">
+            <div class="row">
+                <label for="modelYear" class="col-sm-2 col-form-label">
+                    <strong class="align-middle">Model Yılı</strong>
+                </label>
+                <div class="col-sm-10">
+                  <input type="number" formControlName="modelYear" class="form-control form-control-lg rounded-0" id="modelYear" />
+                </div>
+            </div>
+        </div>
+        <div class="p-3 bg-white">
+            <div class="row">
+                <label for="dailyPrice" class="col-sm-2 col-form-label">
+                    <strong class="align-middle">Kiralama Fiyatı</strong>
+                </label>
+                <div class="col-sm-10">
+                  <input type="number" formControlName="dailyPrice" class="form-control form-control-lg rounded-0" id="dailyPrice" step="0.1" />
+                </div>
+            </div>
+        </div>
+        <div class="p-3 bg-light">
+            <div class="row">
+                <label for="description" class="col-sm-2 col-form-label">
+                    <strong class="align-middle">Açıklama</strong>
+                </label>
+                <div class="col-sm-10">
+                    <textarea formControlName="description" class="form-control form-control-lg rounded-0" id="description" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 bg-white">
+            <div class="row">
+                <div class="col-md-12 text-end">
+                    <button type="submit" class="btn btn-primary rounded-0" [disabled]="disabledSaveButton()">
+                        <span *ngIf="saveButtonLoaded==true" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <span *ngIf="saveButtonLoaded==true" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        <span *ngIf="saveButtonLoaded==false">KAYDET</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

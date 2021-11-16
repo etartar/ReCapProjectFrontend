@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Car } from '../models/car';
+import { CarDetail } from '../models/carDetail';
 import { ListResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
@@ -28,13 +30,28 @@ export class CarService {
     return this.httpClient.get<ListResponseModel<Car>>(url);
   }
 
-  getCarById(id:number) : Observable<SingleResponseModel<Car>> {
+  getCarById(id:number) : Observable<SingleResponseModel<CarDetail>> {
     let url = this.apiUrl + "getbyid/" + id;
-    return this.httpClient.get<SingleResponseModel<Car>>(url);
+    return this.httpClient.get<SingleResponseModel<CarDetail>>(url);
   }
 
   getCarDetailById(id:number) : Observable<SingleResponseModel<Car>> {
     let url = this.apiUrl + "getcardetailbyid/" + id;
     return this.httpClient.get<SingleResponseModel<Car>>(url);
+  }
+
+  addCar(car:Car) : Observable<ResponseModel> {
+    let url = this.apiUrl + 'create';
+    return this.httpClient.post<ResponseModel>(url, car);
+  }
+
+  updateCar(id:number, car:Car): Observable<ResponseModel> {
+    let url = this.apiUrl + "update/" + id;
+    return this.httpClient.put<ResponseModel>(url, car);
+  }
+
+  deleteCar(id:number): Observable<ResponseModel> {
+    let url = this.apiUrl + "delete/" + id;
+    return this.httpClient.delete<ResponseModel>(url);
   }
 }
