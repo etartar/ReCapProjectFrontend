@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Markalar</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a routerLink="/admin/brands/create" class="btn btn-sm btn-outline-success rounded-0">Yeni Marka Ekle</a>
+    </div>
+</div>
+
+<div *ngIf="dataLoaded==false" class="p-3 mb-3 bg-light rounded shadow-sm">
+    <div class="d-flex align-items-center">
+        <strong>Loading...</strong>
+        <div class="ms-auto">
+            <div class="spinner-border spinner-border-md text-dark" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow spinner-grow-md text-warning" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="dataLoaded==true && brands.length == 0" class="p-3 my-3 bg-warning rounded shadow-sm">
+    <h1 class="h4">BİLGİLENDİRME</h1>
+    <p class="mb-0 text-decoration-underline">Sistem de kayıtlı marka bulunamadı.</p>
+</div>
+
+<div *ngIf="dataLoaded==true && brands.length > 0" class="bg-body rounded shadow-sm">
+    <div class="table-responsive">
+        <table class="table table-striped table-borderless table-hover mb-0">
+            <caption class="p-3 bg-light text-black"><strong>Toplam marka sayısı : {{ brands.length }}</strong></caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="p-3">#</th>
+                    <th scope="col" class="p-3">Marka Adı</th>
+                    <th scope="col" class="p-3"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let brand of brands">
+                    <th scope="col" class="p-3 align-middle">{{ brand.id }}</th>
+                    <td scope="col" class="p-3 align-middle">{{ brand.name }}</td>
+                    <td scope="col" class="p-3 align-middle text-end">
+                        <a routerLink="/admin/brands/edit/{{ brand.id }}" class="btn btn-sm btn-warning rounded-0">Düzenle</a>
+                        <a routerLink="/admin/brands/delete/{{ brand.id }}" class="btn btn-sm btn-danger rounded-0">Sil</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
