@@ -14,6 +14,7 @@ import { ColorDeleteComponent } from 'src/app/components/admin/pages/color/color
 import { ColorListComponent } from 'src/app/components/admin/pages/color/color-list/color-list.component';
 import { ColorUpdateComponent } from 'src/app/components/admin/pages/color/color-update/color-update.component';
 import { DashboardComponent } from 'src/app/components/admin/pages/dashboard/dashboard.component';
+import { RentalListComponent } from 'src/app/components/admin/pages/rental/rental-list/rental-list.component';
 
 const routes: Routes = [
     { path: "", pathMatch: "full", component: DashboardComponent },
@@ -28,7 +29,8 @@ const routes: Routes = [
     { path: "cars", component: CarListComponent },
     { path: "cars/create", component: CarCreateComponent },
     { path: "cars/edit/:id", component: CarUpdateComponent },
-    { path: "cars/delete/:id", component: CarDeleteComponent }
+    { path: "cars/delete/:id", component: CarDeleteComponent },
+    { path: "rentals", component: RentalListComponent },
 ];
 
 @NgModule({

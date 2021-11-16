@@ -19,6 +19,7 @@ import { CarCreateComponent } from './pages/car/car-create/car-create.component'
 import { CarListComponent } from './pages/car/car-list/car-list.component';
 import { CarUpdateComponent } from './pages/car/car-update/car-update.component';
 import { CarDeleteComponent } from './pages/car/car-delete/car-delete.component';
+import { RentalListComponent } from './pages/rental/rental-list/rental-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CarDeleteComponent } from './pages/car/car-delete/car-delete.component'
     CarCreateComponent,
     CarListComponent,
     CarUpdateComponent,
-    CarDeleteComponent
+    CarDeleteComponent,
+    RentalListComponent
   ],
   exports: [
     AdminNavbarComponent,
