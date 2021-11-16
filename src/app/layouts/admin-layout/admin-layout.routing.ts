@@ -5,6 +5,10 @@ import { BrandCreateComponent } from 'src/app/components/admin/pages/brand/brand
 import { BrandDeleteComponent } from 'src/app/components/admin/pages/brand/brand-delete/brand-delete.component';
 import { BrandListComponent } from 'src/app/components/admin/pages/brand/brand-list/brand-list.component';
 import { BrandUpdateComponent } from 'src/app/components/admin/pages/brand/brand-update/brand-update.component';
+import { ColorCreateComponent } from 'src/app/components/admin/pages/color/color-create/color-create.component';
+import { ColorDeleteComponent } from 'src/app/components/admin/pages/color/color-delete/color-delete.component';
+import { ColorListComponent } from 'src/app/components/admin/pages/color/color-list/color-list.component';
+import { ColorUpdateComponent } from 'src/app/components/admin/pages/color/color-update/color-update.component';
 import { DashboardComponent } from 'src/app/components/admin/pages/dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -12,7 +16,11 @@ const routes: Routes = [
     { path: "brands", component: BrandListComponent },
     { path: "brands/create", component: BrandCreateComponent },
     { path: "brands/edit/:id", component: BrandUpdateComponent },
-    { path: "brands/delete/:id", component: BrandDeleteComponent }
+    { path: "brands/delete/:id", component: BrandDeleteComponent },
+    { path: "colors", component: ColorListComponent },
+    { path: "colors/create", component: ColorCreateComponent },
+    { path: "colors/edit/:id", component: ColorUpdateComponent },
+    { path: "colors/delete/:id", component: ColorDeleteComponent }
 ];
 
 @NgModule({

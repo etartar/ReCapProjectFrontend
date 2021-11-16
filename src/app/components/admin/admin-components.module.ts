@@ -11,6 +11,10 @@ import { BrandDeleteComponent } from './pages/brand/brand-delete/brand-delete.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { ColorCreateComponent } from './pages/color/color-create/color-create.component';
+import { ColorDeleteComponent } from './pages/color/color-delete/color-delete.component';
+import { ColorUpdateComponent } from './pages/color/color-update/color-update.component';
+import { ColorListComponent } from './pages/color/color-list/color-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { ToastrModule } from 'ngx-toastr';
     BrandListComponent,
     BrandCreateComponent,
     BrandUpdateComponent,
-    BrandDeleteComponent
+    BrandDeleteComponent,
+    ColorCreateComponent,
+    ColorDeleteComponent,
+    ColorUpdateComponent,
+    ColorListComponent
   ],
   exports: [
     AdminNavbarComponent,
