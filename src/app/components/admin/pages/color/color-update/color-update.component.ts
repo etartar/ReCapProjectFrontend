@@ -31,7 +31,7 @@ export class ColorUpdateComponent implements OnInit {
 
   createColorUpdateForm() {
     this.colorUpdateForm = this.formBuilder.group({
-      colorName: ["", Validators.required]
+      name: ["", Validators.required]
     });
   }
 
@@ -41,7 +41,7 @@ export class ColorUpdateComponent implements OnInit {
       setTimeout(() => {
         this.dataLoaded = true;
         this.colorUpdateForm.setValue({
-          "colorName": this.colorDetail.name
+          "name": this.colorDetail.name
         });
       }, 2000);
     });

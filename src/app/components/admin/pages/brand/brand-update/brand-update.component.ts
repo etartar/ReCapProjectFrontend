@@ -31,7 +31,7 @@ export class BrandUpdateComponent implements OnInit {
 
   createBrandUpdateForm() {
     this.brandUpdateForm = this.formBuilder.group({
-      brandName: ["", Validators.required]
+      name: ["", Validators.required]
     });
   }
 
@@ -41,7 +41,7 @@ export class BrandUpdateComponent implements OnInit {
       setTimeout(() => {
         this.dataLoaded = true;
         this.brandUpdateForm.setValue({
-          "brandName": this.brandDetail.name
+          "name": this.brandDetail.name
         });
       }, 2000);
     });
