@@ -20,9 +20,9 @@ import { SiteComponentsModule } from './components/site/site-components.module';
     AdminComponentsModule,
     SiteComponentsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

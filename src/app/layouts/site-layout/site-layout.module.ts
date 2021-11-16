@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { SiteLayoutRoutes } from './site-layout.routing';
+
+import { SiteLayoutRoutingModule } from './site-layout.routing';
+
 import { HomePageComponent } from 'src/app/components/site/pages/home-page/home-page.component';
 
 
@@ -12,7 +13,7 @@ import { HomePageComponent } from 'src/app/components/site/pages/home-page/home-
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(SiteLayoutRoutes)
+    SiteLayoutRoutingModule
   ]
 })
 export class SiteLayoutModule { }
